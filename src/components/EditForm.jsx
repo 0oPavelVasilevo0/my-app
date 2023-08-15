@@ -3,12 +3,13 @@ import './../styles/App.css';
 
 const EditForm = (props) => {
     const [editedName, setEditedName] = useState(props.name);
+    const [editedSurname, setEditedSurname] = useState(props.surname);
     const [editedAge, setEditedAge] = useState(props.age);
     const [editedTel, setEditedTel] = useState(props.tel);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.onSubmit(editedName, editedAge, editedTel);
+        props.onSubmit(editedName, editedSurname, editedAge, editedTel);
     };
 
     return (
@@ -18,6 +19,12 @@ const EditForm = (props) => {
                 placeholder="Name"
                 value={editedName}
                 onChange={(e) => setEditedName(e.target.value)}
+            />
+            <input
+                type="text"
+                placeholder="Surname"
+                value={editedSurname}
+                onChange={(e) => setEditedSurname(e.target.value)}
             />
             <input
                 type="number"

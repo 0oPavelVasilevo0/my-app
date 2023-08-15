@@ -16,10 +16,10 @@ const CombinedList = (props) => {
         setEditIndex(index);
     };
 
-    const handleEditSubmit = (editedName, editedAge, editedTel) => {
+    const handleEditSubmit = (editedName, editedSurname, editedAge, editedTel) => {
         const updatedContacts = arr.map((contact, i) => {
             if (i === editIndex) {
-                return { name: editedName, age: editedAge, tel: editedTel };
+                return { name: editedName, surname: editedSurname, age: editedAge, tel: editedTel };
             }
             return contact;
         });
@@ -32,15 +32,17 @@ const CombinedList = (props) => {
             {editIndex === index ? (
                 <EditForm
                     name={person.name}
+                    surname={person.surname}
                     age={person.age}
                     tel={person.tel}
-                    onSubmit={(editedName, editedAge, editedTel) =>
-                        handleEditSubmit(editedName, editedAge, editedTel)
+                    onSubmit={(editedName, editedSurname, editedAge, editedTel) =>
+                        handleEditSubmit(editedName, editedSurname, editedAge, editedTel)
                     }
                 />
             ) : (
                 <>
                     <span className="title">Name: </span> <span className="info">{person.name}</span><br />
+                    <span className="title">Surname: </span> <span className="info">{person.surname}</span><br />
                     <span className="title">Age: </span> <span className="info">{person.age}</span><br />
                     <span className="title">Tel: </span> <span className="info">{person.tel}</span><br />
                     <button className="btn" onClick={() => handleDelete(index)}>

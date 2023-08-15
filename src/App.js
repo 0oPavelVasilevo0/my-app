@@ -17,8 +17,8 @@ function App() {
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  function addPerson(name, age, tel) {
-    setContacts([...contacts, { name, age, tel }]);
+  function addPerson(name, surname, age, tel) {
+    setContacts([...contacts, { name, surname, age, tel }]);
   }
 
   function deletePerson(updatedContacts) {

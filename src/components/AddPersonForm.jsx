@@ -3,11 +3,16 @@ import './../styles/App.css';
 
 const AddPersonForm = (props) => {
     const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
     const [age, setAge] = useState('');
     const [tel, setTel] = useState('');
 
     const handleChangeName = (e) => {
         setName(e.target.value);
+    };
+
+    const handleChangeSurname = (e) => {
+        setSurname(e.target.value);
     };
 
     const handleChangeAge = (e) => {
@@ -20,9 +25,10 @@ const AddPersonForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (name.trim() !== '' && age.trim() !== '' && tel.trim() !== '') {
-            props.handleSubmit(name.trim(), age.trim(), tel.trim());
+        if (name.trim() !== '' && surname.trim() !== '' && age.trim() !== '' && tel.trim() !== '') {
+            props.handleSubmit(name.trim(), surname.trim(), age.trim(), tel.trim());
             setName('');
+            setSurname('');
             setAge('');
             setTel('');
         }
@@ -37,6 +43,12 @@ const AddPersonForm = (props) => {
                     placeholder="Name"
                     onChange={handleChangeName}
                     value={name}
+                />
+                <input
+                    type="text"
+                    placeholder="Surname"
+                    onChange={handleChangeSurname}
+                    value={surname}
                 />
                 <input
                     type="number"
